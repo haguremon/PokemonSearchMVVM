@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t1m-ce-DFs">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ポケモン-->
+        <scene sceneID="Cu9-Zg-v9N">
+            <objects>
+                <tableViewController id="yvK-PF-ghb" customClass="PokemonListTableViewController" customModule="ImageSearchMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ira-hJ-lG3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="156" id="szk-b6-uah" customClass="PokemonTableViewCell" customModule="ImageSearchMVVM" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="156"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="szk-b6-uah" id="bWx-5A-Wml">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP0-kG-pPj">
+                                            <rect key="frame" x="9" y="68" width="124" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-Sn-ZzF">
+                                            <rect key="frame" x="145.5" y="5" width="248.5" height="145"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="dxT-Sn-ZzF" secondAttribute="bottom" constant="6" id="6vt-hs-pCe"/>
+                                        <constraint firstAttribute="trailing" secondItem="dxT-Sn-ZzF" secondAttribute="trailing" constant="20" symbolic="YES" id="OpA-a8-mLR"/>
+                                        <constraint firstItem="dxT-Sn-ZzF" firstAttribute="top" secondItem="bWx-5A-Wml" secondAttribute="top" constant="5" id="kaR-P9-hz0"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="tP0-kG-pPj" firstAttribute="centerY" secondItem="szk-b6-uah" secondAttribute="centerY" id="EbA-vn-vlg"/>
+                                    <constraint firstItem="dxT-Sn-ZzF" firstAttribute="width" secondItem="szk-b6-uah" secondAttribute="width" multiplier="0.6" id="Yun-9T-ano"/>
+                                    <constraint firstItem="tP0-kG-pPj" firstAttribute="width" secondItem="szk-b6-uah" secondAttribute="width" multiplier="0.3" id="a1w-kQ-FF5"/>
+                                    <constraint firstItem="tP0-kG-pPj" firstAttribute="leading" secondItem="szk-b6-uah" secondAttribute="leading" constant="9" id="d3v-zg-uVG"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imagenmaeLabel" destination="tP0-kG-pPj" id="idR-hW-ZQ6"/>
+                                    <outlet property="searchImage" destination="dxT-Sn-ZzF" id="1Oa-vw-3Ty"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yvK-PF-ghb" id="N7H-vt-6oX"/>
+                            <outlet property="delegate" destination="yvK-PF-ghb" id="TKb-oq-55G"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="ポケモン" id="03j-go-NlG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ldm-mN-QAZ">
+                            <connections>
+                                <segue destination="FMd-0q-u8O" kind="show" id="lj8-U6-6XQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wzc-j0-zQu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="362" y="50"/>
+        </scene>
+        <!--ポケモン検索-->
+        <scene sceneID="KBl-TC-vp2">
+            <objects>
+                <viewController id="Ytp-ib-TVz" customClass="PokemonSearchViewController" customModule="ImageSearchMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="61Y-Nt-KHe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ポケモン図鑑の番号を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fdc-YF-hDG">
+                                <rect key="frame" x="64.5" y="185" width="285.5" height="40.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Fdc-YF-hDG" secondAttribute="height" multiplier="120:17" id="jEz-y8-eD5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fo-UT-Qhr">
+                                <rect key="frame" x="159" y="267.5" width="96" height="44.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9fo-UT-Qhr" secondAttribute="height" multiplier="67:31" id="gDR-ZV-pgD"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="検索ボタン"/>
+                                <connections>
+                                    <action selector="searchButtonPressed" destination="Ytp-ib-TVz" eventType="touchUpInside" id="I7h-9J-Kmy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DX7-sj-Vm7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fdc-YF-hDG" firstAttribute="top" secondItem="DX7-sj-Vm7" secondAttribute="top" constant="97" id="4p6-Ta-h2T"/>
+                            <constraint firstItem="9fo-UT-Qhr" firstAttribute="centerX" secondItem="61Y-Nt-KHe" secondAttribute="centerX" id="5qW-US-BSe"/>
+                            <constraint firstItem="9fo-UT-Qhr" firstAttribute="top" secondItem="Fdc-YF-hDG" secondAttribute="bottom" constant="42" id="K0D-mD-NN5"/>
+                            <constraint firstItem="Fdc-YF-hDG" firstAttribute="centerX" secondItem="61Y-Nt-KHe" secondAttribute="centerX" id="YNh-0j-pU7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="ポケモン検索" id="3Js-mh-Dey">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="x5z-1z-mM9">
+                            <connections>
+                                <action selector="close:" destination="Ytp-ib-TVz" id="z0R-DB-iaX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="idTextField" destination="Fdc-YF-hDG" id="u72-8k-Osf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jac-FD-RQR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1852" y="50"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HNu-Le-ftl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t1m-ce-DFs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K3t-1S-Umh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yvK-PF-ghb" kind="relationship" relationship="rootViewController" id="hzM-MG-PtB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vH8-M8-33w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-450.72463768115944" y="49.553571428571423"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y93-x7-sNa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FMd-0q-u8O" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="vRf-dy-s7q"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RCK-qH-L4P">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ytp-ib-TVz" kind="relationship" relationship="rootViewController" id="BH3-vv-RXx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D1x-AU-0gM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1139" y="50"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
