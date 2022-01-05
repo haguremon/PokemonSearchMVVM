@@ -9,10 +9,12 @@ import UIKit
 
 class PokemonListTableViewController: UITableViewController {
 
+    private var pokemonListViewModel = PokemonListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
+      
     }
 
     // MARK: - Table view data source
@@ -24,15 +26,15 @@ class PokemonListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        pokemonListViewModel.numberOfRows(section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PokemonTableViewCell
-
-        cell.imagenmaeLabel.text = "test"
-        cell.searchImage.image = UIImage(systemName: "plus")
-
+        
+        let pokemonVM = pokemonListViewModel.modelAt(indexPath.row)
+        cell.configure(pokemonVM)
+       
         return cell
     }
     
@@ -40,50 +42,36 @@ class PokemonListTableViewController: UITableViewController {
         100
     }
 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
+extension PokemonListTableViewController: AddPokemonDelegate {
+    //ここで表示させる
+    func addPokemonDidSave(vm: PokemonViewModel) {
+        pokemonListViewModel.addWeatherViewModel(vm)
+        self.tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  
+        if segue.identifier == "PokemonSearchViewController" {
+            prepareSegueForAddWeatherCityViewController(segue: segue)
+        }
+        
+    }
+    
+    func prepareSegueForAddWeatherCityViewController(segue: UIStoryboardSegue) {
+ 
+        guard let nav = segue.destination as? UINavigationController else {
+            fatalError("NavigationController not found")
+        }
+ 
+        guard let pokemonSearchViewController = nav.viewControllers.first as? PokemonSearchViewController else {
+            fatalError("PokemonSearchViewController not found")
+        }
+        
+        pokemonSearchViewController.delegate = self
+    }
+    
+}
+

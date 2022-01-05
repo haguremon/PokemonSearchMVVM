@@ -12,7 +12,7 @@ class AddPokemonViewModel {
     func addPokemon(for id: String, completion: @escaping (PokemonViewModel) -> Void) {
     
 
-        let pokemonURL = URL(string: "")
+        let pokemonURL = URL(string: "https://pokeapi.co/api/v2/pokemon/\(id)")
 //let weatherResource = Resource<WeatherResponse>(url: weatherURL,parse: (Data) -> T?)
             let pokemonResource = Resource<PokemonResponse>(url: pokemonURL!) { data in
             let pokemonResponse = try? JSONDecoder().decode(PokemonResponse.self, from: data)

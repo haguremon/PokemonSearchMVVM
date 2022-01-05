@@ -6,22 +6,29 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PokemonTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imagenmaeLabel: UILabel!
     
+    @IBOutlet weak var typeLabel: UILabel!
+    
     @IBOutlet weak var searchImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    }
+    func configure(_ vm: PokemonViewModel) {
+        self.imagenmaeLabel.text = vm.name
+        searchImage.sd_setImage(with: vm.pokemonImageUrl, completed: nil)
+        typeLabel.text = vm.types
     }
 
 }

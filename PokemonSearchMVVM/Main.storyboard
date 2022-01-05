@@ -11,44 +11,77 @@
         <!--ポケモン-->
         <scene sceneID="Cu9-Zg-v9N">
             <objects>
-                <tableViewController id="yvK-PF-ghb" customClass="PokemonListTableViewController" customModule="ImageSearchMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="yvK-PF-ghb" customClass="PokemonListTableViewController" customModule="PokemonSearchMVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ira-hJ-lG3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="156" id="szk-b6-uah" customClass="PokemonTableViewCell" customModule="ImageSearchMVVM" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="156" id="szk-b6-uah" customClass="PokemonTableViewCell" customModule="PokemonSearchMVVM" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="156"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="szk-b6-uah" id="bWx-5A-Wml">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP0-kG-pPj">
-                                            <rect key="frame" x="9" y="68" width="124" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-Sn-ZzF">
-                                            <rect key="frame" x="145.5" y="5" width="248.5" height="145"/>
+                                            <rect key="frame" x="228.5" y="5" width="165.5" height="145"/>
                                         </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Fvc-h1-WV4">
+                                            <rect key="frame" x="122.5" y="61" width="93" height="34"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FjV-3j-0SD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="43" height="34"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsQ-a6-fhm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="43" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP0-kG-pPj">
+                                                            <rect key="frame" x="0.0" y="17" width="43" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V9O-dX-YIN">
+                                                    <rect key="frame" x="50" y="0.0" width="43" height="34"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイプ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEX-lP-dYD">
+                                                            <rect key="frame" x="0.0" y="0.0" width="43" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9U-FA-IJ9">
+                                                            <rect key="frame" x="0.0" y="17" width="43" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="dxT-Sn-ZzF" firstAttribute="leading" secondItem="Fvc-h1-WV4" secondAttribute="trailing" constant="13" id="3Y2-af-Rwb"/>
                                         <constraint firstAttribute="bottom" secondItem="dxT-Sn-ZzF" secondAttribute="bottom" constant="6" id="6vt-hs-pCe"/>
+                                        <constraint firstItem="Fvc-h1-WV4" firstAttribute="centerY" secondItem="bWx-5A-Wml" secondAttribute="centerY" id="DCq-Cs-Sgq"/>
                                         <constraint firstAttribute="trailing" secondItem="dxT-Sn-ZzF" secondAttribute="trailing" constant="20" symbolic="YES" id="OpA-a8-mLR"/>
                                         <constraint firstItem="dxT-Sn-ZzF" firstAttribute="top" secondItem="bWx-5A-Wml" secondAttribute="top" constant="5" id="kaR-P9-hz0"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <constraints>
-                                    <constraint firstItem="tP0-kG-pPj" firstAttribute="centerY" secondItem="szk-b6-uah" secondAttribute="centerY" id="EbA-vn-vlg"/>
-                                    <constraint firstItem="dxT-Sn-ZzF" firstAttribute="width" secondItem="szk-b6-uah" secondAttribute="width" multiplier="0.6" id="Yun-9T-ano"/>
-                                    <constraint firstItem="tP0-kG-pPj" firstAttribute="width" secondItem="szk-b6-uah" secondAttribute="width" multiplier="0.3" id="a1w-kQ-FF5"/>
-                                    <constraint firstItem="tP0-kG-pPj" firstAttribute="leading" secondItem="szk-b6-uah" secondAttribute="leading" constant="9" id="d3v-zg-uVG"/>
+                                    <constraint firstItem="dxT-Sn-ZzF" firstAttribute="width" secondItem="szk-b6-uah" secondAttribute="width" multiplier="0.4" id="Yun-9T-ano"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imagenmaeLabel" destination="tP0-kG-pPj" id="idR-hW-ZQ6"/>
                                     <outlet property="searchImage" destination="dxT-Sn-ZzF" id="1Oa-vw-3Ty"/>
+                                    <outlet property="typeLabel" destination="r9U-FA-IJ9" id="dDE-Vs-Jmf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -60,19 +93,19 @@
                     <navigationItem key="navigationItem" title="ポケモン" id="03j-go-NlG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ldm-mN-QAZ">
                             <connections>
-                                <segue destination="FMd-0q-u8O" kind="show" id="lj8-U6-6XQ"/>
+                                <segue destination="FMd-0q-u8O" kind="show" identifier="PokemonSearchViewController" id="lj8-U6-6XQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wzc-j0-zQu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="362" y="50"/>
+            <point key="canvasLocation" x="360.86956521739131" y="49.553571428571423"/>
         </scene>
         <!--ポケモン検索-->
         <scene sceneID="KBl-TC-vp2">
             <objects>
-                <viewController id="Ytp-ib-TVz" customClass="PokemonSearchViewController" customModule="ImageSearchMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ytp-ib-TVz" customClass="PokemonSearchViewController" customModule="PokemonSearchMVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="61Y-Nt-KHe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
