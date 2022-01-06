@@ -13,13 +13,15 @@ class AddPokemonViewModel {
     
 
         let pokemonURL = URL(string: "https://pokeapi.co/api/v2/pokemon/\(id)")
-//let weatherResource = Resource<WeatherResponse>(url: weatherURL,parse: (Data) -> T?)
-            let pokemonResource = Resource<PokemonResponse>(url: pokemonURL!) { data in
-            let pokemonResponse = try? JSONDecoder().decode(PokemonResponse.self, from: data)
-            return pokemonResponse
+// Resource<PokemonResponse>(url: <#T##URL#>, parse: <#T##(Data) -> PokemonResponse?#>)
+        
+        let pokemonResource = Resource<PokemonResponse>(url: pokemonURL!) { data in
+                //JSON形式をエンコードするswiftに変更する処理をする
+                let pokemonResponse = try? JSONDecoder().decode(PokemonResponse.self, from: data)
+            return pokemonResponse // PokemonResponseを返す　失敗したらnil
         }
         
-       //JSON形式をエンコードするswiftに変更する処理をする
+
         
         Webservice().load(resource: pokemonResource) { (result) in
 

@@ -8,11 +8,11 @@
 import Foundation
 
 class PokemonListViewModel {
-    
+    //
     private var PokemonViewModels = [PokemonViewModel]()
     
-    
-    func addWeatherViewModel(_ vm: PokemonViewModel) {
+    //PokemonViewModelsにデータを追加する処理
+    func addPokemonViewModel(_ vm: PokemonViewModel) {
         PokemonViewModels.append(vm)
     }
     //これでデータの数を取得
@@ -25,17 +25,18 @@ class PokemonListViewModel {
     }
 }
 
-
+//一つのボケモンデータを作成する
 class PokemonViewModel {
     
     let pokemon: PokemonResponse
     
+    //初期化にPokemonResponseが必要(JSONがswiftに変更されたクラス)
     init(pokemon: PokemonResponse ) {
         
         self.pokemon = pokemon
         
     }
-    
+    //pokemonプロパティを使ってそれぞれのプロパティを作成↓
     var name: String {
         pokemon.name
     }

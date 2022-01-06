@@ -48,7 +48,7 @@ class PokemonListTableViewController: UITableViewController {
 extension PokemonListTableViewController: AddPokemonDelegate {
     //ここで表示させる
     func addPokemonDidSave(vm: PokemonViewModel) {
-        pokemonListViewModel.addWeatherViewModel(vm)
+        pokemonListViewModel.addPokemonViewModel(vm)
         self.tableView.reloadData()
     }
     

@@ -23,8 +23,8 @@ class PokemonSearchViewController: UIViewController {
     
     @IBAction func searchButtonPressed() {
         
-        if let pokemon = idTextField.text {
-            addPokemonVM.addPokemon(for: pokemon) { (vm) in
+        if let pokemonID = idTextField.text {
+            addPokemonVM.addPokemon(for: pokemonID) { (vm) in
                 //デリゲートを使ってListに伝えるようにする
                 self.delegate?.addPokemonDidSave(vm: vm)
                 //セーブ押したときに戻る
